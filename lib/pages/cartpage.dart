@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
-
+import 'package:coffee_project/pages/payscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:coffee_project/components/coffeetile.dart';
 import 'package:coffee_project/models/coffee.dart';
@@ -28,7 +27,7 @@ class _CartPageState extends State<CartPage> {
           padding: const EdgeInsets.all(25.0),
           child: Column(
             children: [
-              Text(
+              const Text(
                 "My Cart",
                 style: TextStyle(fontSize: 25, color: Colors.white),
               ),
@@ -41,23 +40,35 @@ class _CartPageState extends State<CartPage> {
                     return CoffeeTile(
                       coffee: eachCoffee,
                       onTap: () => removeFromCart(eachCoffee),
-                      icon: Icon(Icons.delete),
+                      icon: const Icon(Icons.delete),
                     );
                   },
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(25),
-                width: double.infinity,
-                child: Center(
-                  child: Text(
-                    "Purchase",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () => Navigator.pushReplacement(
+                    context, MaterialPageRoute(
+                      builder: (context) {
+                        return const PayMent();
+                      }
+                    ),
                   ),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.brown,
-                  borderRadius: BorderRadius.circular(12),
+                  child: Container(
+                    padding: const EdgeInsets.all(25),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "Purchase",
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
