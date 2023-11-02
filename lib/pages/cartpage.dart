@@ -55,20 +55,21 @@ class _CartPageState extends State<CartPage> {
                       }
                     ),
                   ),
-                  child: Container(
-                    padding: const EdgeInsets.all(25),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.brown,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        "Purchase",
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                  child: OutlinedButton(
+                      onPressed: (){
+                        Navigator.push(context, 
+                        MaterialPageRoute(builder: (context) => const PayMent()));
+                      },
+                      style: OutlinedButton.styleFrom( 
+                        minimumSize: const Size(250, 70),
+                        textStyle: const TextStyle(fontSize: 20),
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.brown,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))
                       ),
+                      child: const Text("Purchase Now", style: TextStyle(
+                        fontWeight: FontWeight.bold)),
                     ),
-                  ),
                 ),
               ),
             ],

@@ -5,12 +5,25 @@ class PayMent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          "Payment Screen", 
-          style: TextStyle(fontSize: 50),
+    return  Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniStartTop,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Row(
+          children: [
+            FloatingActionButton(
+              backgroundColor: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_back_ios_new, color: Colors.black,),
+            ),
+            const Text(" Back", style: TextStyle(fontSize: 24),)
+          ],
         ),
+      ),
+      body: Center(
+        child: Image.asset("images/qr.jpeg"),
       ),
     );
   }
